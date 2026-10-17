@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<!-- saved from url=(0274)file:///Users/mac-sz-katharinehan/Downloads/%E9%A6%96%E9%A1%B5&%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95&%E5%BC%80%E6%88%B7&%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/%E5%AF%8C%E9%80%94%E8%B4%A6%E6%88%B7%E8%B5%84%E4%BA%A7%E5%AD%97%E6%AE%B5%E8%AF%B4%E6%98%8E%E6%B1%87%E6%80%BB.html#a459 -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>富途账户资产字段说明汇总</title>
+<style>
+  :root {
+    --bg: #f3f4f6;
+    --paper: #ffffff;
+    --ink: #1c1f24;
+    --muted: #6b7280;
+    --line: #e6e8ec;
+    --side: #f7f8fa;
+    --accent: #e85d04;
+    --accent-soft: #fff1e8;
+    --head: #111418;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--bg);
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .layout { display: flex; min-height: 100vh; align-items: flex-start; }
+  .side {
+    position: sticky;
+    top: 0;
+    width: 312px;
+    height: 100vh;
+    flex: 0 0 312px;
+    background: var(--side);
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+  }
+  .side-head { padding: 22px 18px 12px; }
+  .brand {
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .side-head h1 {
+    margin: 6px 0 4px;
+    font-size: 18px;
+    line-height: 1.35;
+    color: var(--head);
+  }
+  .side-head p { margin: 0; color: var(--muted); font-size: 12px; }
+  .search {
+    margin: 8px 18px 10px;
+    position: relative;
+  }
+  .search input {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px 10px 8px 32px;
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+  }
+  .search input:focus { border-color: #f0b48a; }
+  .search svg {
+    position: absolute; left: 10px; top: 10px; width: 14px; height: 14px; fill: none;
+    stroke: #9aa1ab; stroke-width: 2;
+  }
+  .nav {
+    overflow: auto;
+    padding: 4px 10px 28px;
+    flex: 1;
+  }
+  .group { margin-bottom: 8px; }
+  .group-label {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 8px 8px 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #8a9099;
+    background: var(--side);
+    letter-spacing: .04em;
+  }
+  .nav a {
+    display: block;
+    text-decoration: none;
+    color: #3a3f46;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .nav a.nav-art { font-weight: 600; color: var(--head); margin-top: 2px; }
+  .nav a.nav-h2 { padding-left: 18px; color: #4b5160; }
+  .nav a.nav-h3 { padding-left: 30px; color: #6b7280; font-size: 12px; }
+  .nav a:hover { background: #eceef2; }
+  .nav a.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .nav a.hidden, .group.hidden { display: none; }
+  .empty-hint {
+    display: none;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 12px 8px;
+  }
+  .main {
+    flex: 1;
+    min-width: 0;
+    padding: 36px 48px 96px;
+  }
+  .intro {
+    max-width: 880px;
+    margin-bottom: 28px;
+  }
+  .intro h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    line-height: 1.3;
+  }
+  .intro p { margin: 0; color: #4b5160; }
+  .meta {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 14px; color: var(--muted); font-size: 13px;
+  }
+  .meta b { color: var(--ink); font-weight: 600; }
+  .cat-title {
+    max-width: 880px;
+    margin: 36px 0 12px;
+    font-size: 13px;
+    letter-spacing: .12em;
+    color: var(--accent);
+  }
+  .doc {
+    max-width: 880px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 28px 8px;
+    margin: 0 0 16px;
+    scroll-margin-top: 18px;
+  }
+  .doc-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+  .doc-head h3 {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.35;
+  }
+  .src {
+    flex: none;
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .src:hover { text-decoration: underline; }
+  .doc-body h2, .doc-body h3, .doc-body h4 {
+    scroll-margin-top: 18px;
+    color: var(--head);
+  }
+  .doc-body h2 { font-size: 18px; margin: 22px 0 8px; }
+  .doc-body h3 { font-size: 16px; margin: 18px 0 6px; }
+  .doc-body p { margin: 0 0 12px; }
+  .doc-body ul, .doc-body ol { margin: 0 0 12px; padding-left: 1.3em; }
+  .doc-body li { margin: 4px 0; }
+  .doc-body a { color: #245396; }
+  .doc-body strong { font-weight: 650; }
+  .doc-body img {
+    display: block;
+    max-width: min(100%, 420px);
+    height: auto;
+    margin: 8px 0 14px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: #fafafa;
+  }
+  .doc-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .doc-body td, .doc-body th {
+    border: 1px solid #e5e7eb;
+    padding: 8px 10px;
+    vertical-align: top;
+    text-align: left;
+  }
+  .doc-body tr.head td {
+    background: #f7f8fa;
+    font-weight: 650;
+  }
+  .doc-body td img { max-width: 180px; }
+  .doc-body .table-wrap { overflow-x: auto; }
+  .foot {
+    max-width: 880px;
+    margin-top: 28px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  @media (max-width: 900px) {
+    .layout { display: block; }
+    .side {
+      position: relative;
+      width: 100%;
+      height: auto;
+      max-height: 46vh;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .main { padding: 24px 16px 64px; }
+  }
+
+  mark.hit { background: #ffe08a; color: inherit; padding: 0 1px; border-radius: 2px; }
+  mark.hit.current { background: #ff8a3d; outline: 2px solid #c2410c; }
+  .tools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 18px 10px; }
+  .tools button {
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+    border-radius: 8px; padding: 6px 10px; font: inherit; font-size: 12px; cursor: pointer;
+  }
+  .tools button:hover { border-color: var(--accent); color: var(--accent); }
+  .hit-count { font-size: 12px; color: var(--muted); min-width: 72px; }
+  .doc.hidden, .cat.hidden { display: none; }
+  @media print {
+    .side, .tools, .src { display: none !important; }
+    .layout { display: block; }
+    .main { padding: 0; }
+    .doc { break-inside: avoid; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="side">
+    <div class="side-head">
+      <div class="brand">FUTU · 帮助中心</div>
+      <h1>账户资产字段说明</h1>
+      <p>共 17 篇 · 82 个标题</p>
+    </div>
+    <label class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      <input id="q" type="search" placeholder="搜索后 Enter / Shift+Enter 跳转每一处" autocomplete="off">
+    </label>
+
+    <div class="tools">
+      <span class="hit-count" id="hit-count"></span>
+      <button type="button" id="btn-prev" title="上一处（Shift+Enter）">上一处</button>
+      <button type="button" id="btn-next" title="下一处（Enter）">下一处</button>
+      <button type="button" id="btn-download">下载</button>
+      <button type="button" id="btn-print">打印</button>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="group"><div class="group-label">持仓说明</div><a class="nav-art" data-text="持仓市值" href="#a718">持仓市值</a><a class="nav-h2" data-text="1. 持仓市值" href="#a718-h1">1. 持仓市值</a><a class="nav-h3" data-text="1.1 什么是现价？" href="#a718-h2">1.1 什么是现价？</a><a class="nav-art" data-text="成本价介绍" href="#a502">成本价介绍</a><a class="nav-h2" data-text="1. 摊薄成本价" href="#a502-h1">1. 摊薄成本价</a><a class="nav-h2" data-text="2. 平均成本价" href="#a502-h2">2. 平均成本价</a><a class="nav-art" data-text="今日盈亏与昨日盈亏" href="#a547">今日盈亏与昨日盈亏</a><a class="nav-h2" data-text="1. 今日盈亏" href="#a547-h1">1. 今日盈亏</a><a class="nav-h2" data-text="2. 今日盈亏比例" href="#a547-h2">2. 今日盈亏比例</a><a class="nav-h2" data-text="3. 昨日盈亏" href="#a547-h3">3. 昨日盈亏</a><a class="nav-art" data-text="持仓盈亏" href="#a548">持仓盈亏</a><a class="nav-h2" data-text="1. 摊薄成本价" href="#a548-h1">1. 摊薄成本价</a><a class="nav-h2" data-text="2. 平均成本价" href="#a548-h2">2. 平均成本价</a><a class="nav-art" data-text="常见问题" href="#a549">常见问题</a><a class="nav-h2" data-text="1. 我的持仓成本价不对，应该如何修改？" href="#a549-h1">1. 我的持仓成本价不对，应该如何修改？</a><a class="nav-h2" data-text="2. 为什么我的成本价是负数时，持仓盈亏比例显示0.00%？" href="#a549-h2">2. 为什么我的成本价是负数时，持仓盈亏比例显示0.00%？</a><a class="nav-h2" data-text="3. 为什么账户页显示的今日盈亏为0/与预期不一致?" href="#a549-h3">3. 为什么账户页显示的今日盈亏为0/与预期不一致?</a><a class="nav-art" data-text="组合持仓说明" href="#a698">组合持仓说明</a><a class="nav-h2" data-text="1. 组合持仓展示" href="#a698-h1">1. 组合持仓展示</a><a class="nav-h2" data-text="2. 如何切换组合视图" href="#a698-h2">2. 如何切换组合视图</a><a class="nav-art" data-text="期权的持仓风险参数" href="#a1082">期权的持仓风险参数</a><a class="nav-h2" data-text="1. 期权持仓希腊值的含义" href="#a1082-h1">1. 期权持仓希腊值的含义</a><a class="nav-h2" data-text="2. 期权持仓希腊值如何计算" href="#a1082-h2">2. 期权持仓希腊值如何计算</a><a class="nav-h3" data-text="例子一：单腿期权持仓" href="#a1082-h3">例子一：单腿期权持仓</a><a class="nav-h3" data-text="例子二：组合期权持仓" href="#a1082-h4">例子二：组合期权持仓</a><a class="nav-h2" data-text="3. 如何在持仓中设置期权持仓希腊值显隐" href="#a1082-h5">3. 如何在持仓中设置期权持仓希腊值显隐</a><a class="nav-art" data-text="账户资产总值" href="#a867">账户资产总值</a><a class="nav-h2" data-text="1、证券类AUM" href="#a867-h1">1、证券类AUM</a><a class="nav-h2" data-text="2、期货AUM" href="#a867-h3">2、期货AUM</a><a class="nav-h2" data-text="3、合约乘数" href="#a867-h5">3、合约乘数</a><a class="nav-art" data-text="资产信息中各个字段都是什么含义" href="#a433">资产信息中各个字段都是什么含义</a><a class="nav-h2" data-text="1. 证券市值" href="#a433-h1">1. 证券市值</a><a class="nav-h2" data-text="2. 多头市值" href="#a433-h2">2. 多头市值</a><a class="nav-h2" data-text="3. 空头市值" href="#a433-h3">3. 空头市值</a><a class="nav-h2" data-text="4. 融资计息金额" href="#a433-h4">4. 融资计息金额</a><a class="nav-h2" data-text="5. 冻结资金" href="#a433-h5">5. 冻结资金</a><a class="nav-h2" data-text="6. 最大可提" href="#a433-h6">6. 最大可提</a><a class="nav-h2" data-text="7. 现金可提" href="#a433-h7">7. 现金可提</a><a class="nav-h2" data-text="8. 剩余流动性" href="#a433-h8">8. 剩余流动性</a></div><div class="group"><div class="group-label">资产分析</div><a class="nav-art" data-text="资产分析" href="#a453">资产分析</a><a class="nav-h2" data-text="基础概念" href="#a453-h1">基础概念</a><a class="nav-h2" data-text="1. 收益率走势" href="#a453-h2">1. 收益率走势</a><a class="nav-h2" data-text="2. 总资产走势" href="#a453-h3">2. 总资产走势</a><a class="nav-h2" data-text="3. 收益率计算公式" href="#a453-h4">3. 收益率计算公式</a><a class="nav-h3" data-text="3.1 时间加权收益率" href="#a453-h5">3.1 时间加权收益率</a><a class="nav-h3" data-text="3.2 现金加权收益率" href="#a453-h6">3.2 现金加权收益率</a><a class="nav-h3" data-text="3.3 简单收益率" href="#a453-h7">3.3 简单收益率</a><a class="nav-h2" data-text="4. 资产净值" href="#a453-h8">4. 资产净值</a><a class="nav-h2" data-text="5. 净流入额" href="#a453-h9">5. 净流入额</a><a class="nav-h2" data-text="6. 累计收益" href="#a453-h10">6. 累计收益</a><a class="nav-h2" data-text="7. 数据时间范围" href="#a453-h11">7. 数据时间范围</a><a class="nav-h2" data-text="8. 当日汇率" href="#a453-h12">8. 当日汇率</a><a class="nav-h2" data-text="9. 日切逻辑" href="#a453-h13">9. 日切逻辑</a><a class="nav-h2" data-text="常见问题" href="#a453-h14">常见问题</a><a class="nav-h3" data-text="1. 资产分析页的全部数据都是实时更新的吗？" href="#a453-h15">1. 资产分析页的全部数据都是实时更新的吗？</a><a class="nav-h3" data-text="2. 我的账户今日盈亏为什么不等于资产分析上的今日收益？" href="#a453-h16">2. 我的账户今日盈亏为什么不等于资产分析上的今日收益？</a><a class="nav-art" data-text="收益率" href="#a454">收益率</a><a class="nav-h2" data-text="1. 认识收益率" href="#a454-h1">1. 认识收益率</a><a class="nav-h2" data-text="2. 各收益率计算方式" href="#a454-h2">2. 各收益率计算方式</a><a class="nav-h3" data-text="2.1 简单加权收益" href="#a454-h3">2.1 简单加权收益</a><a class="nav-h3" data-text="2.2 现金加权收益率" href="#a454-h4">2.2 现金加权收益率</a><a class="nav-h3" data-text="2.3 时间加权收益率" href="#a454-h5">2.3 时间加权收益率</a><a class="nav-h2" data-text="3. 常见问题" href="#a454-h6">3. 常见问题</a><a class="nav-h3" data-text="3.1 各收益率计算方式的区别" href="#a454-h7">3.1 各收益率计算方式的区别</a><a class="nav-h3" data-text="3.2 为什么不同的计算方式导致结果有差异" href="#a454-h8">3.2 为什么不同的计算方式导致结果有差异</a><a class="nav-h3" data-text="3.3 如何选择收益率的计算方式" href="#a454-h9">3.3 如何选择收益率的计算方式</a><a class="nav-h3" data-text="3.4 为什么我的累计收益是正数（负数），但收益率却是负数（正数）" href="#a454-h10">3.4 为什么我的累计收益是正数（负数），但收益率却是负数（正数）</a><a class="nav-art" data-text="收益日历" href="#a485">收益日历</a></div><div class="group"><div class="group-label">盈亏分析</div><a class="nav-art" data-text="盈亏分析总览" href="#a455">盈亏分析总览</a><a class="nav-h2" data-text="1. 总盈亏统计说明" href="#a455-h1">1. 总盈亏统计说明</a><a class="nav-h2" data-text="2. 已清仓、当前持仓的盈亏会统计到总盈亏吗？" href="#a455-h2">2. 已清仓、当前持仓的盈亏会统计到总盈亏吗？</a><a class="nav-h2" data-text="3. 交易胜率" href="#a455-h3">3. 交易胜率</a><a class="nav-art" data-text="盈亏分析明细" href="#a456">盈亏分析明细</a><a class="nav-h2" data-text="1. 股票盈亏" href="#a456-h1">1. 股票盈亏</a><a class="nav-h2" data-text="2. 期货盈亏" href="#a456-h2">2. 期货盈亏</a><a class="nav-h2" data-text="3. 理财盈亏" href="#a456-h3">3. 理财盈亏</a><a class="nav-h2" data-text="4. 加密货币盈亏" href="#a456-h4">4. 加密货币盈亏</a><a class="nav-art" data-text="港股期权市值和盈亏说明" href="#a201">港股期权市值和盈亏说明</a><a class="nav-h2" data-text="1. 期权结算价" href="#a201-h1">1. 期权结算价</a><a class="nav-h2" data-text="2. 常见问题" href="#a201-h2">2. 常见问题</a><a class="nav-h3" data-text="2.1 为什么我的港股股票期权，它现在的持仓市值跟昨天收盘后的市值相差这么大？" href="#a201-h3">2.1 为什么我的港股股票期权，它现在的持仓市值跟昨天收盘后的市值相差这么大？</a><a class="nav-h3 active" data-text="2.2 为什么我用昨天收盘后在客户端看到的资产净值加账户的今日盈亏，不等于现在的实时总资产？" href="#a201-h4">2.2 为什么我用昨天收盘后在客户端看到的资产净值加账户的今日盈亏，不等于现在的实时总资产？</a><a class="nav-art" data-text="新股盈亏" href="#a459">新股盈亏</a><a class="nav-h2" data-text="1. 总览部分字段说明" href="#a459-h1">1. 总览部分字段说明</a><a class="nav-h2" data-text="2. 认购分析字段说明" href="#a459-h2">2. 认购分析字段说明</a><a class="nav-h2" data-text="3. 盈亏明细字段说明" href="#a459-h4">3. 盈亏明细字段说明</a><a class="nav-h2" data-text="4. 常见问题" href="#a459-h5">4. 常见问题</a><a class="nav-h3" data-text="4.1 新股盈亏的盈亏金额与盈亏分析所统计的盈亏不一样？" href="#a459-h6">4.1 新股盈亏的盈亏金额与盈亏分析所统计的盈亏不一样？</a><a class="nav-h3" data-text="4.2 未中签的股票为什么盈亏金额为负？" href="#a459-h7">4.2 未中签的股票为什么盈亏金额为负？</a><a class="nav-h3" data-text="4.3 盈亏金额的计算是怎么判断我们卖出的是中签的股票?" href="#a459-h8">4.3 盈亏金额的计算是怎么判断我们卖出的是中签的股票?</a><a class="nav-h3" data-text="4.4 清仓后的新股会在「新股盈亏」中显示吗？" href="#a459-h9">4.4 清仓后的新股会在「新股盈亏」中显示吗？</a></div><div class="group"><div class="group-label">在途资产</div><a class="nav-art" data-text="在途资产" href="#a458">在途资产</a><a class="nav-h3" data-text="1. 什么是在途资产？" href="#a458-h1">1. 什么是在途资产？</a><a class="nav-h3" data-text="2. 查看路径" href="#a458-h2">2. 查看路径</a><a class="nav-h3" data-text="3. 什么情况会产生在途资产？" href="#a458-h3">3. 什么情况会产生在途资产？</a><a class="nav-h3" data-text="4. 在途资产会计入到总资产吗？" href="#a458-h4">4. 在途资产会计入到总资产吗？</a><a class="nav-h3" data-text="5. 在途资产什么时候到账？" href="#a458-h5">5. 在途资产什么时候到账？</a><a class="nav-h3" data-text="6. 在途资产是否会影响我的购买力？" href="#a458-h6">6. 在途资产是否会影响我的购买力？</a><a class="nav-h3" data-text="7. 在途资产会出现在结单上吗？" href="#a458-h7">7. 在途资产会出现在结单上吗？</a></div>
+      <div class="empty-hint" id="empty">没有匹配的标题</div>
+    </nav>
+  </aside>
+  <main class="main">
+    <div class="intro">
+      <h2>账户资产字段说明汇总</h2>
+      <p>整理自富途证券（香港）帮助中心「账户相关 / 账户资产」。正文按原文收录，涵盖持仓、资产分析、盈亏分析和在途资产中的字段含义、计算公式与示例。左侧标题可直接跳转。</p>
+      <div class="meta">
+        <span>来源 <b>futuhkapp.com 帮助中心</b></span>
+        <span>栏目 <b>账户资产</b></span>
+        <span>整理日期 <b>2026-10-14</b></span>
+      </div>
+    </div>
+    <section class="cat"><h2 class="cat-title">持仓说明</h2><article class="doc" id="a718"><header class="doc-head"><h3>持仓市值</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_718" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a718-h1">1. 持仓市值</h2>
+<p>正股/窝轮牛熊 ：持仓市值 = 数量 × 现价</p>
+<p>期权：持仓市值<a href="https://www.futuhkapp.com/hans/support/topic2_2055" target="_blank" rel="noopener noreferrer">点击此处</a>查看</p>
+<h3 id="a718-h2">1.1 什么是现价？</h3>
+<p>除美股外，现价在盘中交易时段为当前最新价，非盘中交易时段固定为收盘价。</p>
+<p>美股的交易时段分为盘前、盘中、盘后和夜盘时段，富途支持客户自定义各时段现价的参考价格（可在 设置 - 账户持仓 - 美股持仓市值和盈亏计算参考价 进行设置）；</p>
+<p>如果设置使用盘前、盘后、夜盘价，则现价为该时段的最新价；如果设置不使用，则默认使用盘中收盘价。（特殊情况：如果设置不使用夜盘价，但使用盘后价；则夜盘时段，在美东时间24:00前取盘后收盘价，24:00后取盘中收盘价）。</p></div></article><article class="doc" id="a502"><header class="doc-head"><h3>成本价介绍</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_502" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><p>富途提供两种成本价的计算方式</p>
+<h2 id="a502-h1"><strong>1. 摊薄成本价</strong></h2>
+<p>含义：摊薄成本价指某股票持有期内的保本价格（不包含佣金及费用），用户在该值卖出可实现盈亏均衡。考虑了持有期内每次交易的盈亏（暂不包含<a href="https://www.futuhk.com/hans/products/invest-regularly" target="_blank" rel="noopener noreferrer">供股</a>等情况）。既考虑买入，也考虑卖出的变化。卖出股票所对应的盈亏会摊高或降低成本价，甚至会出现成本价为负数的情况。</p>
+
+<p>公式：</p>
+<ul>
+<li>
+做多交易：摊薄成本价=【持有期内（买入总金额-现金派息-卖出总金额)】 ÷ 持有数量
+</li>
+<li>
+做空交易：摊薄成本价=【持有期内（卖出总金额-买入总金额+现金派息)】 ÷ 持有数量
+</li>
+</ul>
+持有期：以日计算，当个交易日的交易都会计入到摊薄成本中，比如上午清仓后，下午再开仓，摊薄成本就会考虑到上午交易的盈亏情况。
+
+
+<h2 id="a502-h2"><strong>2. 平均成本价</strong></h2>
+<p>公式：平均成本价=（买入前的平均成本价×数量 + 此次买入的价格×数量）÷ 买入后持有数量</p>
+<p>含义：是指某股票当前持仓的平均成本（不包含佣金及费用）。<strong>只考虑买入，不考虑卖出的变化。卖出股票所对应的盈亏不摊薄成本价，而转为已实现盈亏。</strong></p>
+
+<p><strong>例子1：建仓</strong></p>
+<p>假如客户在T日之前没有持有阿里巴巴（BABA），然后在T日以200美元/股买入200股，则</p>
+<p>摊薄成本价= (持有期内买入总金额-持有期内卖出总金额) ÷ 持有数量</p>
+<p>=（200×200-0）÷ 200</p>
+<p>= 200</p>
+<p>平均成本价=（买入前的平均成本价×数量 + 此次买入的价格×数量）÷ 买入后持有数量</p>
+<p>=（0+200×200）÷ 200</p>
+<p>= 200</p>
+<p>假如股价当天收盘涨到205，比较两个方法下的持仓情况</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>摊薄成本价</td>
+<td>现价</td>
+<td>持仓数量</td>
+<td>盈亏</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>200</td>
+<td>205</td>
+<td>200</td>
+<td>1000</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>平均成本价</td>
+<td>现价</td>
+<td>持仓数量</td>
+<td>盈亏</td>
+<td>未实现盈亏</td>
+<td>已实现盈亏</td>
+</tr>
+<tr>
+<td>200</td>
+<td>205</td>
+<td>200</td>
+<td>1000</td>
+<td>1000</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+
+
+<p><strong>例子2：减仓，续例子1</strong></p>
+<p>假如客户在T+1日再以210美元/股卖出100股，则</p>
+<p>摊薄成本价= (持有期内买入总金额-持有期内卖出总金额) ÷ 持有数量</p>
+<p>=（200×200-210×100）÷ 100</p>
+<p>= 190</p>
+<p>平均成本价= 卖出股票时不变=200，但是卖出部分盈亏=（210-200）×100=1000计入已实现盈亏</p>
+<p>假如当天收盘价215，比较两个方法下的持仓情况</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>摊薄成本价</td>
+<td>现价</td>
+<td>持仓数量</td>
+<td>盈亏</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>190</td>
+<td>215</td>
+<td>100</td>
+<td>2500</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>平均成本价</td>
+<td>现价</td>
+<td>持仓数量</td>
+<td>盈亏</td>
+<td>未实现盈亏</td>
+<td>已实现盈亏</td>
+</tr>
+<tr>
+<td>200</td>
+<td>215</td>
+<td>100</td>
+<td>2500</td>
+<td>1500</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table></div>
+
+<p><strong>例子3：加仓，续例子2</strong></p>
+<p>假如客户在T+5日又以205美元/股买入100股，则</p>
+<p>摊薄成本价= (持有期内买入总金额-持有期内卖出总金额) ÷ 持有数量</p>
+<p>=（200×200+205×100-210×100）÷ 200</p>
+<p>= 197.50</p>
+<p>平均成本价=（买入前的平均成本价×数量 + 此次买入的价格×数量）÷ 买入后持有数量</p>
+<p>=（200×100+205×100）÷200</p>
+<p>= 202.5</p>
+<p>假如当天收盘价215, 比较两个方法下的持仓情况</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>摊薄成本价</td>
+<td>现价</td>
+<td>持仓数量</td>
+<td>盈亏</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>197.50</td>
+<td>215</td>
+<td>200</td>
+<td>3500</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>平均成本价</td>
+<td>现价</td>
+<td>持仓数量</td>
+<td>盈亏</td>
+<td>未实现盈亏</td>
+<td>已实现盈亏</td>
+</tr>
+<tr>
+<td>202.50</td>
+<td>215</td>
+<td>200</td>
+<td>3500</td>
+<td>2500</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table></div></div></article><article class="doc" id="a547"><header class="doc-head"><h3>今日盈亏与昨日盈亏</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_547" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a547-h1">1. 今日盈亏</h2>
+<p><strong>含义：</strong>是指从上个交易日收盘到当前为止的累计盈亏</p>
+<p><strong>计算公式：</strong></p>
+<p>持仓今日盈亏 = (今日市值 - 昨日市值) + (今日卖出成交额－今日买入成交额)</p>
+<p>“今日卖出成交额”包含当日获得的现金分红，计入当日收入</p>
+<p>今日市值等于实时持仓市值；昨日市值等于昨日盘中收盘价 × 昨日持仓数量</p>
+<p>账户今日盈亏 = 全部持仓今日盈亏之和</p>
+<p><strong>今日盈亏重置时间：</strong></p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+<p>股票市场</p>
+</td>
+<td>
+<p>重置时间</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>美股</p>
+</td>
+<td>
+<p>不使用夜盘价：美东时间 0:00</p>
+<p>使用夜盘价：美东时间 20:00</p>
+<p>可通过【设置 - 账户持仓 - 美股持仓市值和盈亏计算参考价】查看或更改设置</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>其它市场</p>
+</td>
+<td>
+<p>股票市场当地时间 0:00</p>
+<p>例：港股重置时间为北京时间 0:00</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>关于综合账户今日盈亏重置说明：</p>
+<p>综合账户下，账户今日盈亏=全部市场持仓今日盈亏之和</p>
+<p>因此，在股票市场重置时间时，账户今日盈亏数据会同步更新。</p>
+<p><span class="em" style="color:#ff6900">例：</span>综合账户下，港股市场今日盈亏为100.00HKD，美股市场今日盈亏为100.00USD，北京时间23:59综合账户今日盈亏为100.00USD+100.00HKD，00:00会更新为仅100.00USD。</p>
+
+<h2 id="a547-h2">2. 今日盈亏比例</h2>
+<p><strong>计算公式</strong>：今日盈亏比例 = 今日盈亏/（期初资产净值 + 期间最大净流入）</p>
+<p><span class="em" style="color:#ff6900">注</span>：单币种账户如果已开通统一购买力，期初资产净值和期间最大净流入的统计范围为所有开通统一购买力的账户</p>
+<p><strong>说明：</strong></p>
+<p><strong>1）期初资产净值</strong></p>
+<p>资产包括现金和持仓，不同账户对期初的定义如下：</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+<p>美股账户</p>
+</td>
+<td>
+<p>不使用夜盘价：美东时间 0:00</p>
+<p>（即夏令时北京时间 12:00，冬令时北京时间 13:00）</p>
+<p>使用夜盘价：美东时间 20:00</p>
+<p>（即夏令时北京时间 8:00（T+1），冬令时北京时间 9:00（t+1））</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>港/A股账户</p>
+</td>
+<td>
+<p>北京时间 9:00</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>综合账户</p>
+</td>
+<td>
+<p>北京时间 0:00</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>2）期间最大净流入</strong></p>
+<p>统计期间，现金变动的峰值；如果峰值小于0，则取0。现金变动场景包括出入金、资金调拨、货币兑换、转仓、基金申赎、债券买卖，卡券入金、<a href="https://www.futuhk.com/products/ipo" target="_blank" rel="noopener noreferrer">ipo</a>、esop资金调拨。不同账户统计期间如下：</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+
+<p>美股账户</p>
+</td>
+<td>
+<p>不使用夜盘价：美东时间 0:00 - 0:00（T+1）</p>
+<p>使用夜盘价：美东时间 0:00 - 0:00（T+1）</p>
+<p>（即夏令时北京时间 12:00 - 12:00（T+1），冬令时北京时间 13:00 - 13:00（T+1））</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>港/A股账户</p>
+</td>
+<td>
+<p>北京时间 9:00 - 16:10</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>综合账户</p>
+</td>
+<td>
+<p>北京时间 0:00 - 0:00（T+1）</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>举例：</p>
+<p>例子1：今日盈亏1000，期初资产净值20000，提取资金10000，期间最大净流入为0<br>今日盈亏比例 = 1000/ (20000+0) = 5.00%</p>
+<p>例子2：今日盈亏1000，期初资产净值20000，存入资金20000，期间最大净流入为20000<br>今日盈亏比例 = 1000/ (20000+20000) = 2.50%</p>
+<p>例子3：今日盈亏1000，期初资产净值20000，先存入资金20000，后提取资金10000，期间最大净流入为20000<br>今日盈亏比例 = 1000/ (20000+20000) = 2.50%</p>
+<p>例子4：今日盈亏1000，期初资产净值20000， 先提取资金10000，后存入资金20000，期间最大净流入为10000<br>今日盈亏比例 = 1000/ (20000+10000) = 3.33%</p>
+
+<h2 id="a547-h3">3. 昨日盈亏</h2>
+<p><strong>含义：</strong>是指上个交易日实现的累计盈亏</p>
+<p><strong>计算公式</strong>：昨日盈亏 =（昨日市值 - 前日市值）+（昨日卖出成交额 - 昨日买入成交额）</p>
+<p><strong>说明：</strong>昨日市值等于昨日盘中收盘价 × 昨日持仓数量；前日市值等于前日盘中收盘价 × 前日持仓数量</p>
+<p><span class="em" style="color:#ff6900">注</span>：昨日盈亏仅在客户设置使用夜盘价时展示，且展示时间仅为美东时间20:00 - 24:00</p></div></article><article class="doc" id="a548"><header class="doc-head"><h3>持仓盈亏</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_548" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a548-h1">1. 摊薄成本价</h2>
+<p>摊薄成本价计算的持仓盈亏是持有期内全部盈亏。</p>
+<p>持仓盈亏 = （现价 - 成本价）x 持仓数量</p>
+
+<h2 id="a548-h2">2. 平均成本价</h2>
+<p>平均成本价方法下持仓的盈亏包含未实现盈亏和已实现盈亏。</p>
+<p>未实现盈亏 = （现价 - 成本价）x 持仓数量&nbsp;</p>
+<p>已实现盈亏 =（平仓价 - 平均成本价）× 数量 + 现金分红</p>
+<p>持仓盈亏 = 未实现盈亏 + 已实现盈亏</p></div></article><article class="doc" id="a549"><header class="doc-head"><h3>常见问题</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_549" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a549-h1">1. 我的持仓成本价不对，应该如何修改？</h2>
+<p>持仓成本价仅供参考，它可能计算不准确，特别是在发生公司行为或转仓的情况，但此类错误不影响您的资产净值，您可以通过联系客服修改成本价。</p>
+
+<h2 id="a549-h2">2. 为什么我的成本价是负数时，持仓盈亏比例显示0.00%？</h2>
+<p>目前富途使用的是摊薄成本价，计算公式：成本价= (持有期内买入总金额-持有期内卖出总金额-持有期内派息总金额)/持有数量，当您股票在持有期卖出的金额≥买入的金额仍还有持仓时，成本价就会显示0甚至负数。</p>
+<p>持仓盈亏比例采用了则简单收益率方法，计算公式：盈亏比例=（现价-成本价）/成本价=持仓盈亏/持有期内（累计买入金额-累计卖出金额-累计现金派息），当成本价为负数时，计算结果无参考意义，因此盈亏比例展示为0.00%。</p>
+
+<h2 id="a549-h3">3. 为什么账户页显示的今日盈亏为0/与预期不一致?</h2>
+<p>如果您的持仓产生了今日盈亏，但账户页显示的今日盈亏为0/与预期中的不一致，您可以检查【设置 &gt; 账户持仓 &gt; 持仓显示 &gt; <strong>显示持有数量为0的持仓】</strong>，是否关闭。如果设置不显示，那该持仓上对应的盈亏也不会展示。如您需要展示，可以打开该开关。</p>
+<p><img src="./富途账户资产字段说明汇总_files/1719821663114361036-FbaeQiQp.png" alt=""></p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>开启前</td>
+<td>开启后</td>
+</tr>
+<tr>
+<td><img src="./富途账户资产字段说明汇总_files/20230609036166558ad119b5fbc.jpg" alt=""></td>
+<td><img src="./富途账户资产字段说明汇总_files/2023060903616656f68325af952.png" alt=""></td>
+</tr>
+</tbody>
+</table></div></div></article><article class="doc" id="a698"><header class="doc-head"><h3>组合持仓说明</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_698" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a698-h1">1. 组合持仓展示</h2>
+
+<p>如果您下单一个组合期权，在<strong>组合视图</strong><strong>下</strong>，它会以组合持仓的形式进行展示。</p>
+<p><img src="./富途账户资产字段说明汇总_files/1721370205667549782-YCNMWRCZ.png" alt=""></p>
+<p>打开组合视图后，成本盈亏将以组合维度统计，如果您的多个组合有同代码的单腿，这些单腿的成本盈亏会分开计算</p>
+<p>例：账户原本持有1个XYZ担保看涨策略组合，成本价及盈亏信息如下：</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+代码名称
+</td>
+<td>
+数量
+</td>
+<td>
+现价
+</td>
+<td>
+成本价
+</td>
+<td>
+持仓盈亏
+</td>
+</tr>
+<tr>
+<td>
+<strong>股票担保</strong>
+</td>
+<td>
+<strong>1</strong>
+</td>
+<td>
+<strong>11</strong>
+</td>
+<td>
+<strong>8</strong>
+</td>
+<td>
+<strong>300</strong>
+</td>
+</tr>
+<tr>
+<td>
+XYZ
+</td>
+<td>
+100
+</td>
+<td>
+14
+</td>
+<td>
+10
+</td>
+<td>
+400
+</td>
+</tr>
+<tr>
+<td>
+XYZ CALL 20
+</td>
+<td>
+-1
+</td>
+<td>
+3
+</td>
+<td>
+2
+</td>
+<td>
+-100
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>之后使用组合订单买入一个XYZ看涨价差垂直策略组合(包含-1张XYZ CALL 20 ，成交价格4美元/张；1张XYZ CALL 16, 成交价格4.5美元/张) ，持仓展示变动如下：</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+代码名称
+</td>
+<td>
+数量
+</td>
+<td>
+现价
+</td>
+<td>
+成本价
+</td>
+<td>
+持仓盈亏
+</td>
+</tr>
+<tr>
+<td>
+<strong>股票担保</strong>
+</td>
+<td>
+<strong>1</strong>
+</td>
+<td>
+<strong>10</strong>
+</td>
+<td>
+<strong>7</strong>
+</td>
+<td>
+<strong>300</strong>
+</td>
+</tr>
+<tr>
+<td>
+XYZ
+</td>
+<td>
+100
+</td>
+<td>
+15
+</td>
+<td>
+10
+</td>
+<td>
+500
+</td>
+</tr>
+<tr>
+<td>
+XYZ CALL 20
+</td>
+<td>
+-1
+</td>
+<td>
+5
+</td>
+<td>
+2
+</td>
+<td>
+-300
+</td>
+</tr>
+<tr>
+<td>
+<strong>垂直策略</strong>
+</td>
+<td>
+<strong>1</strong>
+</td>
+<td>
+<strong>2</strong>
+</td>
+<td>
+<strong>1.5</strong>
+</td>
+<td>
+<strong>50</strong>
+</td>
+</tr>
+<tr>
+<td>
+XYZ CALL 16
+</td>
+<td>
+1
+</td>
+<td>
+7
+</td>
+<td>
+4.5
+</td>
+<td>
+250
+</td>
+</tr>
+<tr>
+<td>
+XYZ CALL 20
+</td>
+<td>
+-1
+</td>
+<td>
+5
+</td>
+<td>
+4
+</td>
+<td>
+-100
+</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="a698-h2">2. 如何切换组合视图</h2>
+<p>持仓页默认展示组合视图；可以通过【我的 - 设置 - 账户持仓 - 显示组合期权视图】进行修改</p>
+<img src="./富途账户资产字段说明汇总_files/1719569609786163273-LXVYAtFs.png" alt=""></div></article><article class="doc" id="a1082"><header class="doc-head"><h3>期权的持仓风险参数</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_1082" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><p>期权投资者通常会计算持仓组合中的风险参数，以便进行风险管理。</p>
+<p><img src="./富途账户资产字段说明汇总_files/1696845857613177813-NLKiIpxQ.png" alt=""></p>
+<h2 id="a1082-h1">1. 期权持仓希腊值的含义</h2>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+<p><strong>持仓希腊值</strong></p>
+</td>
+<td>
+<p><strong>含义</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Delta</p>
+</td>
+<td>
+<p>标的资产价格每变动1个单位时，该期权持仓盈亏金额变化</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Gamma</p>
+</td>
+<td>标的资产价格每变动1个单位时，该期权的持仓Delta值变化</td>
+</tr>
+<tr>
+<td>
+<p>Vega</p>
+</td>
+<td>
+<p>隐含波动率每变动1%时，该期权持仓盈亏金额变化</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Theta</p>
+</td>
+<td>
+<p>时间每流逝一天，该期权持仓盈亏金额变化</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Rho</p>
+</td>
+<td>
+<p>无风险利率每变动1%时，该期权持仓会盈亏金额变化</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="a1082-h2">2.&nbsp;期权持仓希腊值如何计算</h2>
+<p>持仓希腊值 = 期权希腊值 x 持仓数量 x 合约乘数</p>
+<p>以持仓Delta为例：</p>
+<h3 id="a1082-h3"><strong>例子一：单腿期权持仓</strong></h3>
+<p>假设您持有 10 张美股XYZ的看涨期权合约，每张期权Delta为 0.75，持仓Delta则为750(= 0.75 x 10 x 100)。</p>
+<p>这意味着如果标的股票XYZ上涨 1 美元，您的期权持仓盈利 750 美元；如果标的股票XYZ下跌 1 美元，则您的期权持仓亏损 750 美元。</p>
+<h3 id="a1082-h4"><strong>例子二：组合期权持仓</strong></h3>
+<p>假设您持有15组美股XYZ的多头垂直策略Call 55/60 (即持有 15 张XYZ Call 55 和 -15 张 XYZ Call 60)</p>
+<p>• XYZ Call 55 的 Delta为 0.61，对应持仓Delta = 0.61 x 15 x 100 = 915</p>
+<p>•&nbsp;XYZ Call 60&nbsp;的 Delta为 0.29，对应持仓Delta = -0.29 x 15 x 100 = -435</p>
+<p>那么组合的持仓Delta为：915 + (-435) = 480。这意味着股票XYZ上涨1美元，您的期权持仓组合将盈利480美元，反之亦然。</p>
+<p><span class="em" style="color:#ff6900">注：</span></p>
+<p>1. 持仓希腊值的含义和行情数据中的期权希腊值的含义不同。持仓希腊值是以客户持有的期权来计算出的实际风险值，其含义更为丰富。</p>
+<p><em>行情数据中的期权希腊值可以参阅<a href="https://www.futuhkapp.com/hans/support/topic1_473" target="_blank" rel="noopener noreferrer">此处</a>。</em></p>
+<p>2.&nbsp;当持仓组合中含有除正股&amp;期权外的品类（例如：港股轮证）时，汇总行暂不支持计算组合风险值。</p>
+
+<h2 id="a1082-h5">3.&nbsp;如何在持仓中设置期权持仓希腊值显隐</h2>
+<p>如果您期望在持仓中查看持有期权的持仓希腊值，可以在以下路径打开相关字段的显隐：</p>
+<p>"设置 - 账户持仓 - 证券字段 - 打开期权相关持仓参数"</p>
+<p><img src="./富途账户资产字段说明汇总_files/1696845929029562247-JeiuFzam.png" alt=""></p></div></article><article class="doc" id="a867"><header class="doc-head"><h3>账户资产总值</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_867" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a867-h1">1、证券类AUM</h2>
+<p>包括您账户持有已结算的证券类资产和资金，以绝对值计算。</p>
+<p>账户资金是日结资金余额；</p>
+<p>股票类资产=日结收盘价*持仓数量；</p>
+<p>股票沽空=日结收盘价*持仓数量；</p>
+<p>期权类资产=日结收盘价*持仓数量*合约乘数；</p>
+<p><strong>举例说明：</strong></p>
+<p>日结时，您账户中持有已结算的证券类资产和资金明细如下（注：价格为兑换为HKD后的股票/期权价格，兑换汇率：1美元=7.8230港元；1人民币=1.0960 港元；实际汇率取日结汇率收盘价进行计算）</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td><span class="em" style="color:#f2f4f7"><strong>市场</strong></span></td>
+<td><span class="em" style="color:#f2f4f7"><strong>品类</strong></span></td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>股票/期权代码</strong></span></p>
+</td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>数量</strong></span></p>
+</td>
+<td><span class="em" style="color:#f2f4f7"><strong>价格（HKD）</strong></span></td>
+<td><span class="em" style="color:#f2f4f7"><strong>合约乘数</strong></span></td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>AUM（HKD）</strong></span></p>
+</td>
+</tr>
+<tr>
+<td rowspan="2">香港</td>
+<td>股票</td>
+<td>700</td>
+<td>50</td>
+<td>340.00</td>
+<td>&nbsp;</td>
+<td>17,000.00</td>
+</tr>
+<tr>
+<td>期权</td>
+<td>TCH230629P320000</td>
+<td>50</td>
+<td>1.13</td>
+<td>100</td>
+<td>5,650.00</td>
+</tr>
+<tr>
+<td rowspan="2">美国</td>
+<td>股票</td>
+<td>NVDA</td>
+<td>-50</td>
+<td>3,280.00</td>
+<td>&nbsp;</td>
+<td>164,000.00</td>
+</tr>
+<tr>
+<td>期权</td>
+<td>TSLA230616P250000</td>
+<td>50</td>
+<td>18.72</td>
+<td>100</td>
+<td>93,600.00</td>
+</tr>
+<tr>
+<td colspan="2">现金</td>
+<td colspan="4">&nbsp;</td>
+<td>1,000.00</td>
+</tr>
+<tr>
+<td colspan="2">证券账户总AUM</td>
+<td colspan="4">&nbsp;</td>
+<td>281,250.00</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="a867-h3">2、期货AUM</h2>
+<p>包括您账户中持有的期货资产及资金。</p>
+<p>账户资金是日结资金余额；</p>
+<p>期货类资产=日结收盘价*持仓数量*合约乘数； &nbsp;注：日结收盘价&lt;0，则期货资产视为0；</p>
+<p>期货沽空=日结收盘价*持仓数量*合约乘数，以绝对值计算；</p>
+<p><strong>举例说明：</strong></p>
+<p>日结时，您账户中持有的期货类资产及资金明细如下。（注：价格为兑换为HKD后的股票/期权价格，兑换汇率：1美元=7.8230港元；1人民币=1.0960 港元；1新币= 5.8445港元；1日元=0.0556 港元；实际汇率取日结汇率收盘价进行计算）</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>市场</strong></span></p>
+</td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>品类</strong></span></p>
+</td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>期货代码</strong></span></p>
+</td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>数量</strong></span></p>
+</td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>价格（HKD）</strong></span></p>
+</td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>合约乘数</strong></span></p>
+</td>
+<td>
+<p><span class="em" style="color:#f2f4f7"><strong>AUM（HKD）</strong></span></p>
+</td>
+</tr>
+<tr>
+<td>香港</td>
+<td>期货</td>
+<td>TCHmain</td>
+<td>50</td>
+<td>345.39</td>
+<td>100</td>
+<td>1,726,950.00</td>
+</tr>
+<tr>
+<td>美国</td>
+<td>期货</td>
+<td>SILmain</td>
+<td>50</td>
+<td>191.92</td>
+<td>1,000</td>
+<td>9,596,000.00</td>
+</tr>
+<tr>
+<td>日本</td>
+<td>期货</td>
+<td>TOPIXmain</td>
+<td>50</td>
+<td>128.95</td>
+<td>10,000</td>
+<td>64,475,000.00</td>
+</tr>
+<tr>
+<td>新加坡</td>
+<td>期货</td>
+<td>IUmain</td>
+<td>50</td>
+<td>711.95</td>
+<td>200</td>
+<td>7,119,500.00</td>
+</tr>
+<tr>
+<td colspan="2">现金</td>
+<td colspan="4">&nbsp;</td>
+<td>1,000.00</td>
+</tr>
+<tr>
+<td colspan="2">期货账户总AUM</td>
+<td colspan="4">&nbsp;</td>
+<td>82,918,450.00</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="a867-h5">3、合约乘数</h2>
+<p>期权及期货类持仓资产值需要使用合约乘数进行计算，具体合约乘数约定请参见合约细则。合约细则详见：<a href="https://www.futuhkapp.com/support/topic2_174" target="_blank" rel="noopener noreferrer">https://www.futuhkapp.com/support/topic2_174</a></p></div></article><article class="doc" id="a433"><header class="doc-head"><h3>资产信息中各个字段都是什么含义</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_433" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a433-h1">1. 证券市值</h2>
+<p>您账户持仓中股票与证券衍生品的市值总和。</p>
+
+<h2 id="a433-h2">2. 多头市值</h2>
+<p>您账户持仓的多头股票与证券衍生品的市值总和。</p>
+
+<h2 id="a433-h3">3. 空头市值</h2>
+<p>您账户持仓的空头股票与证券衍生品的市值总和，为负值。</p>
+
+<h2 id="a433-h4">4. 融资计息金额</h2>
+<p>融资计息金额为您账户每日交收后的欠款，您出入金、股票持仓调整等造成的欠款变化将在结算后更新。实际欠款请以结单为准。</p>
+<p>例如，您在 T 日融资 $2000 买入股票，则：</p>
+<p>&nbsp; 1）在 T 日结算后，融资计息金额为 0；</p>
+<p>&nbsp; 2）在 T+1 日结算后，融资计息金额为 0；</p>
+<p>&nbsp; 3）在 T+2 日结算后，融资计息金额为 $2000。</p>
+<p>即您使用融资后，在 T 日和 T+1 日均不产生利息，从 T+2 日交收后开始产生利息。</p>
+<p>接上例，若您在 T+2 日平仓融资买入的股票，则：</p>
+<p>&nbsp; 1）在 T+2 日结算后，融资计息金额为 2000；</p>
+<p>&nbsp; 2）在 T+3 日结算后，融资计息金额为 2000；</p>
+<p>&nbsp; 3）在 T+4 日结算后，融资计息金额为 0。</p>
+<p>即您平仓融资买入的股票后，在未完成交收前仍然会计算利息。若您通过入金的方式归还融资，到账后即不计息。</p>
+
+<h2 id="a433-h5">5. 冻结资金</h2>
+<p>账户冻结资金包含挂单冻结，交易费用预扣，<a href="https://www.futuhk.com/products/ipo" target="_blank" rel="noopener noreferrer">新股认购</a>冻结等。</p>
+
+<h2 id="a433-h6">6. 最大可提</h2>
+<p>当前账户的现金与可融资金额的总和。</p>
+
+<h2 id="a433-h7">7. 现金可提</h2>
+<p><strong>1. 含义</strong></p>
+<p>指已经完成交收，可直接提取至银行账户的资金。</p>
+<p><strong>2. 影响因素</strong></p>
+<p>&nbsp; 1) 交收机制</p>
+<p>交易品类的交收机制会影响现金可提。例如：美股实行T+1交收制度，即当日发生交易，下一个交易日才能完成资金和股票的交收。</p>
+<p>假设：</p>
+<ul>
+<li>
+<p>T日开始，现金可提=5万</p>
+</li>
+<li>
+<p>T日，卖出股票收到2万现金</p>
+</li>
+<li>
+<p>T日结束，现金=7万，现金可提=5万</p>
+</li>
+<li>
+<p>T+1日，支付1万元买入股票，现金=7-1=6万，现金可提=5-1=4万</p>
+</li>
+<li>
+<p>T+1日结束，T日卖股票的2万完成交收，现金=6万，现金可提=4+2=6万</p>
+</li>
+</ul>
+<p>&nbsp; 2) 冻结资金</p>
+<p>&nbsp; 3) 股票的空头持仓市值或期权保证金金额</p>
+账户的空头股票持仓、期权保证金或空头期权合约市值，会影响客户的可提取现金额，也可能占用存入的资金。客户账户的现金总值、现金明细有余额，不代表一定有足够可提取的现金。详情可参考 App - 账户页面，点选账户详情页查看。
+
+<h2 id="a433-h8">8. 剩余流动性</h2>
+<p>表示您的账户净资产距离触发「危险」状态还有多少下跌空间，等于账户的综合净资产减去维持保证金。当剩余流动性低于0时，我们将按市况对您的账户保留随时强制平仓的权利。</p></div></article></section><section class="cat"><h2 class="cat-title">资产分析</h2><article class="doc" id="a453"><header class="doc-head"><h3>资产分析</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_453" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a453-h1"><strong>基础概念</strong></h2>
+<h2 id="a453-h2">1. 收益率走势</h2>
+<p>横轴表示时间，与总资产走势一致。纵轴是收益率，曲线上的点代表总资产从期初到当天的累计收益率。点击具体的市场指数，可与同时期大盘指数对比。</p>
+<p>注意，此收益率不是年化收益率，而是从期初开始到所选的期末日期的累计收益率，相当于在期初持有1元总资产，在所筛选的这段时间的累计收益率。</p>
+
+<h2 id="a453-h3">2. 总资产走势</h2>
+<p>横轴表示时间，两端的日期分别是期初、期末；纵轴是资产净值，曲线上的点是全部账户（包括基金、证券、期货）每天按当天汇率折算成同一种货币的总资产净值。如果当天不是交易日，则等于上一个交易日的资产净值。。</p>
+
+<h2 id="a453-h4">3. 收益率计算公式</h2>
+<p>富途提供了三种不同的收益率计算方法，详细请<a href="https://www.futuhkapp.com/hans/support/topic2_454" target="_blank" rel="noopener noreferrer"><span class="em" style="color:#3b7aff">点击查看</span></a>，以下为简单介绍</p>
+<h3 id="a453-h5">3.1 时间加权收益率</h3>
+<p>时间加权收益率 = [ 1 （1+第1日的当日收益率）（1+第2日的当日收益率）… * (1+第n日的当日收益率)－1 ] * 100%</p>
+<p>当日收益率 = 当日收益 /（昨日总资产+0.5*今日净流入）</p>
+<p>当账户频繁大额出入金，可能出现<strong><span class="em" style="color:#e67e23">收益率与综合收益的符号相反的情况</span></strong>，举个例子：</p>
+<p>1）T日：日初总资产100，当日没有净流入，日末总资产150，则当日收益+50，当日收益率=+50.00%</p>
+<p>2）T+1日：日初总资产150，当日净流入1000，日末总资产1050，则当日收益 -100，当日收益率=-15.38%</p>
+<p>3）在[T,T+1]，时间加权收益率=[（1+50.00%）×（1-15.38%）-1]*100% = +26.93%，但是综合收益=+50-100=-50 此时收益率无参考意义，请以综合收益为准或切换到其他收益率计算方法。</p>
+<h3 id="a453-h6">3.2 现金加权收益率</h3>
+<p>现金加权收益率 = 综合收益 / 调整后的期初总资产</p>
+<p>调整后的期初总资产 = 期初总资产 + Σ（ 单笔净流入的权重 * 单笔净流入金额 ）</p>
+<p>单笔净流入的权重 = 该笔现金流在区间存续的天数/期间总天数</p>
+<p>假设计算期间为100天，某笔现金流在第30天转入，该笔现金流在计算期间内存续的天数 = 100 - 30 = 70天，单笔净流入的权重 = 70 / 100 = 0.7，这相当于该笔资金从期初开始以原金额的70%参与整个计算期间。</p>
+<h3 id="a453-h7">3.3 简单收益率</h3>
+<p>简单加权收益率 = 综合收益 /（期初总资产+0.5*期间净流入额）</p>
+<p>不论净流入额发生在哪一天，均被视为以发生金额的一半从期初存续在整个计算区间。</p>
+
+<h2 id="a453-h8">4.&nbsp;资产净值</h2>
+<p>今日资产净值：由于当前交易日尚未结束，今日资产净值是根据您的实时持仓和当前市场价格动态计算的，这个数值会随市场波动而实时变化。</p>
+<p>其他日期资产净值：对于任何已结束的交易日（T-1日及更早），我们使用该日的日末持仓记录和对应的证券收盘价来准确计算历史资产净值。</p>
+<p>资产分析的日末资产净值仅供参考, 实际资产请以结单为准。</p>
+
+<h2 id="a453-h9">5. 净流入额</h2>
+<p>由三部分组成：资金存取、股票转仓和其他。</p>
+<p>1） 「资金存取」指存入、提取和调拨资金，不包括现金种子和赠股；</p>
+<p>2） 「股票转仓」以转入或转出股票的当日收盘价计算；若客户转仓时已设定成本价，按照客户设定的成本价计算。</p>
+<p>3） 「其他」包含卡券和公司期权激励或限制性股票（RSU），RSU等于行权或归属得到的股票和现金减去相关行权/归属成本、税费和手续费。</p>
+<p><strong><span class="em" style="color:#ffffff">公式：净流入额 = 流入金额 - 流出金额 = 存入资金－提取资金 + 转入股票－转出股票 + 其他</span></strong></p>
+
+<h2 id="a453-h10">6.&nbsp;累计收益</h2>
+<p>您的每日盈亏基于以下原则计算：</p>
+<ol>
+<li>
+<p><strong>按交易</strong><strong>币种</strong><strong>核算</strong>：首先根据您持仓的实际币种资产（如USD、HKD等）计算每个币种资产的投资收益。</p>
+</li>
+<li>
+<p><strong>统一折算显示</strong>：然后将各币种的投资收益按历史当日汇率折算为APP显示的币种（如HKD）。</p>
+</li>
+</ol>
+<p>区间累计盈亏等于区间内每日的盈亏值加总。</p>
+
+<p>例如，您的T日资产如下：</p>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+
+</td>
+<td>
+<p><strong>港币</strong><strong>资产</strong></p>
+</td>
+<td>
+<p><strong>美元</strong><strong>资产</strong></p>
+</td>
+<td>
+<p><strong>汇率(USD/HKD)</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p>T-1日</p>
+</td>
+<td>
+<p>1,000</p>
+</td>
+<td>
+<p>1,000</p>
+</td>
+<td>
+<p>8</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>T日</p>
+</td>
+<td>
+<p>1,000</p>
+</td>
+<td>
+<p>1,100</p>
+</td>
+<td>
+<p>7</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>T日净流入</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>0</p>
+</td>
+<td>
+<p>-</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果您选择的币种为HKD，则：</p>
+<p>T日HKD资产盈亏 = (T日HKD资产净值 - T-1日HKD资产净值) = (1,000 - 1,000) = 0</p>
+<p>T日USD资产盈亏 = (T日USD资产净值 - T-1日USD资产净值) = (1,100 - 1,000) = 100</p>
+<p>T日HKD总盈亏 = T日HKD资产盈亏 + T日USD资产盈亏 x T日汇率 = 0 + 100 x 7 = 700</p>
+<p>所以，您T日的HKD总盈亏 = 700</p>
+
+<h2 id="a453-h11">7. 数据时间范围</h2>
+<p>系统从2018年1月1日开始提供资产分析数据。您可以在2018年1月1日至今的任意时间段内查看您的资产走势和收益情况。</p>
+<p>● 期初和期末日期选择</p>
+<ul>
+<li>期初日期：您可以选择从2018年1月1日起的任意日期作为期初日期。</li>
+<li>期末日期：可以选择任意不超过当前日期的日期作为期末日期。</li>
+<li>时间跨度：如果手动筛选日期，期初日期和期末日期的跨度不能小于7天。</li>
+</ul>
+<p>●&nbsp;特殊情况说明</p>
+<p>如果您的账户最早有资产的日期晚于2018年1月1日，且您选择的期初日期早于您的账户最早有资产的日期，系统会自动以您的账户最早有资产的日期作为实际的期初日期，并从该日期开始计算您的资产走势和盈亏情况。</p>
+<p>●&nbsp;举例说明</p>
+<p>如果您的账户于2019年3月1日开始有资产，但您选择了2018年7月1日作为期初日期，系统会自动将2019年3月1日作为实际的期初日期，并从该日期开始显示您的资产数据。</p>
+
+<h2 id="a453-h12">8.&nbsp;当日汇率</h2>
+<p>在总资产走势曲线上查看到的当日汇率，是历史行情汇率，用于折算每日资产净值和净流入额。</p>
+<p>1）期初资产净值：使用期初当日汇率折算。</p>
+<p>2）净流入额：使用发生净流入的当日汇率折算。</p>
+<p>3）期末资产净值：使用期末当日汇率折算。</p>
+<p>计算综合收益和当日收益时，分为两步：1.先将所有数值按历史当日汇率折算，2.再代入公式计算。</p>
+
+<h2 id="a453-h13">9.&nbsp;日切逻辑</h2>
+<p>系统每日于美东时间 8:00 PM 开始展示下一日的资产和盈亏数据。</p>
+
+<h2 id="a453-h14">常见问题</h2>
+<h3 id="a453-h15">1. 资产分析页的全部数据都是实时更新的吗？</h3>
+<p><span class="em" style="color:#fc8228"><strong>资产总览</strong></span>：是的，按实时行情汇率折合为同一币种计算总资产，并展示分布情况。</p>
+<p><span class="em" style="color:#fc8228"><strong>收益率走势/总资产走势/收益日历</strong></span>：每次进入页面时展示最新更新的数据，页面内手动刷新可实时更新数据。</p>
+
+<h3 id="a453-h16">2.&nbsp;我的账户今日盈亏为什么不等于资产分析上的今日收益？</h3>
+<p>1） 统计范围不同：我的账户今日盈亏仅包含交易活动产生的盈亏，且不包含费用和分红；资产分析当日盈亏包含账户的所有资产变动导致的账户净额盈亏。</p>
+<p>2）&nbsp;统计时间不同：账户页今日盈亏包含各市场自然日当前的盈亏，每个股票市场在当地时间0:00后今日盈亏会清零。例如，港股今日盈亏在北京时间0:00会清零。此时资产分析仍包含对应日期的港股盈亏，但是账户页今日盈亏已不包含港股。</p></div></article><article class="doc" id="a454"><header class="doc-head"><h3>收益率</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_454" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a454-h1">1. <strong>认识收益率</strong></h2><p>收益率是在一段时间里，累计收益占初始成本的比率，您可以通过收益率来衡量一段时间内账户的收益情况。值得注意的是: 如果账户在这期间发生了频繁或者大额的资金或股票出入，可能会导致收益率计算出现偏差，因此灵活选择不同的收益率计算方式非常重要。收益率计算的方法有很多，但都有各自优缺点，富途APP参考行业常用算法并结合自身业务，提供了以下三种收益率计算方式：简单加权/时间加权/现金加权。</p><h2 id="a454-h2"><a href="file:///Users/mac-sz-katharinehan/Downloads/%E9%A6%96%E9%A1%B5&amp;%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95&amp;%E5%BC%80%E6%88%B7&amp;%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83/%E5%AF%8C%E9%80%94%E8%B4%A6%E6%88%B7%E8%B5%84%E4%BA%A7%E5%AD%97%E6%AE%B5%E8%AF%B4%E6%98%8E%E6%B1%87%E6%80%BB.html" target="_blank" rel="noopener noreferrer"></a>2. 各收益率计算方式</h2><h3 id="a454-h3">2.1 简单加权收益</h3><p>简单加权收益率将所有净流入都视作在期间的中点发生，并且<strong>按照0.5进行折算</strong>，得到调整后的期初资产。通常，该方法简单易懂，可能更适合出入金频率低，金额少的客户使用</p><p>公式：累计收益率 = 总收益/调整后期初总资产</p><p><img src="./富途账户资产字段说明汇总_files/1699954517137860852-nINawaQa.png" alt=""></p><p>举例：</p><div class="table-wrap"><table><tbody><tr class="head"><td><p><span class="em" style="color:#F2F4F7">日期</span></p></td><td><p><span class="em" style="color:#F2F4F7">净流入</span></p></td><td><p><span class="em" style="color:#F2F4F7">当日收益</span></p></td><td><p><span class="em" style="color:#F2F4F7">当日总资产</span></p></td><td><p><span class="em" style="color:#F2F4F7">计算过程</span></p></td></tr><tr><td><p>2023年1月2日（期初）</p></td><td><p>--</p></td><td><p>--</p></td><td><p>100,000.00</p></td><td rowspan="6"><p>累计收益率 = 10,000.00/ (100,000.00+0.5*10,000.00) =9.52%</p></td></tr><tr><td><p>2023年1月3日</p></td><td><p>20,000.00</p></td><td><p>3,000.00</p></td><td><p>123,000.00</p></td></tr><tr><td><p>2023年1月4日</p></td><td><p>--</p></td><td><p>1,000.00</p></td><td><p>124,000.00</p></td></tr><tr><td><p>2023年1月5日</p></td><td><p>-10,000.00</p></td><td><p>5,000.00</p></td><td><p>119,000.00</p></td></tr><tr><td><p>2023年1月6日（期末）</p></td><td><p>--</p></td><td><p>1,000.00</p></td><td><p>120,000.00</p></td></tr><tr><td><p>合计</p></td><td><p>10,000.00</p></td><td><p>10,000.00</p></td><td></td></tr></tbody></table></div><p><em>提供的示例仅用于说明目的，并不旨在反映任何投资者可以预期实现的结果。</em></p><h3 id="a454-h4">2.2&nbsp;现金加权收益率</h3><p>现金加权收益率将所有净流入按照在统计区间的存在时长折算，得到调整后的期初资产。该方法考虑了净流入的时间和规模，在出入金频率较高的情况下相比于简单加权，通常计算更准确；</p><p>公式：累计收益率 = 总收益/调整后期初总资产</p><p>其中：</p><p>（1）调整后的期初总资产 = 期初总资产+ ∑（单笔净流入金额 * 时间权重）<br>（2）时间权重 = 该笔现金流期间内存在天数/总天数</p><p><img src="./富途账户资产字段说明汇总_files/1699954560977661309-nauiMtac.png" alt=""></p><p>举例：</p><div class="table-wrap"><table><tbody><tr class="head"><td><p><span class="em" style="color:#F2F4F7">日期</span></p></td><td><p><span class="em" style="color:#F2F4F7">净流入</span></p></td><td><p><span class="em" style="color:#F2F4F7">当日收益</span></p></td><td><p><span class="em" style="color:#F2F4F7">当日总资产</span></p></td><td><p><span class="em" style="color:#F2F4F7">净流入存在天数</span></p></td><td><p><span class="em" style="color:#F2F4F7">时间权重</span></p></td><td><p><span class="em" style="color:#F2F4F7">净流入*时间权重</span></p></td><td><p><span class="em" style="color:#F2F4F7">计算过程</span></p></td></tr><tr><td><p>2023年1月2日（期初）</p></td><td><p>--</p></td><td><p>--</p></td><td><p>100,000.00</p></td><td><p>4天</p></td><td><p>--</p></td><td><p>--</p></td><td rowspan="6"><p>累计收益率 = 10,000.00/ (100,000.00+12,500.00) =8.89%</p></td></tr><tr><td><p>2023年1月3日</p></td><td><p>20,000.00</p></td><td><p>3,000.00</p></td><td><p>123,000.00</p></td><td><p>3天</p></td><td><p>0.75</p></td><td><p>15000</p></td></tr><tr><td><p>2023年1月4日</p></td><td><p>--</p></td><td><p>1,000.00</p></td><td><p>124,000.00</p></td><td><p>2天</p></td><td><p>0.50</p></td><td><p>0</p></td></tr><tr><td><p>2023年1月5日</p></td><td><p>-10,000.00</p></td><td><p>5,000.00</p></td><td><p>119,000.00</p></td><td><p>1天</p></td><td><p>0.25</p></td><td><p>-2500</p></td></tr><tr><td><p>2023年1月6日（期末）</p></td><td><p>--</p></td><td><p>1,000.00</p></td><td><p>120,000.00</p></td><td><p>0天</p></td><td><p>0</p></td><td><p>0</p></td></tr><tr><td><p>合计</p></td><td><p>10,000.00</p></td><td><p>10,000.00</p></td><td></td><td></td><td></td><td><p>12,500.00</p></td></tr></tbody></table></div><p><em>提供的示例仅用于说明目的，并不旨在反映任何投资者可以预期实现的结果。</em></p><h3 id="a454-h5">2.3 时间加权收益率</h3><p>时间加权收益率将整个时间段按日划分，分别计算每日收益率后，再相乘得到总的投资回报率。</p><p>该方法按天分割净流入，在出入金频率较高的情况下相比于简单加权，通常计算更准确。但存在大额资金存取可能导致符号相反的情况，此时收益率应当视为无参考意义（详情可查看3.4）</p><p>公式：累计收益率 = [(1+R1)×(1+R2)×(1+R3)…(1+Rn)-1]×100%</p><p>其中：Rn为Tn时间点的当日收益率，当日收益率 =&nbsp;当日收益/（昨日总资产+0.5*今日净流入）</p><p><img src="./富途账户资产字段说明汇总_files/1699954561693316123-hqEXcKRx.png" alt=""></p><p>举例：</p><div class="table-wrap"><table><tbody><tr class="head"><td><p><span class="em" style="color:#F2F4F7">日期</span></p></td><td><p><span class="em" style="color:#F2F4F7">净流入</span></p></td><td><p><span class="em" style="color:#F2F4F7">当日收益</span></p></td><td><p><span class="em" style="color:#F2F4F7">当日总资产</span></p></td><td><p><span class="em" style="color:#F2F4F7">当日收益率</span></p></td><td><p><span class="em" style="color:#F2F4F7">计算过程</span></p></td></tr><tr><td><p>2023年1月2日（期初）</p></td><td><p>--</p></td><td><p>--</p></td><td><p>100,000.00</p></td><td><p>--</p></td><td rowspan="6"><p>累计收益率 = (1+2.73%)*(1+0.81%)*(1+4.20%)*(1+0.84%)-1 =8.82%</p></td></tr><tr><td><p>2023年1月3日</p></td><td><p>20,000.00</p></td><td><p>3,000.00</p></td><td><p>123,000.00</p></td><td><p>2.73%</p></td></tr><tr><td><p>2023年1月4日</p></td><td><p>--</p></td><td><p>1,000.00</p></td><td><p>124,000.00</p></td><td><p>0.81%</p></td></tr><tr><td><p>2023年1月5日</p></td><td><p>-10,000.00</p></td><td><p>5,000.00</p></td><td><p>119,000.00</p></td><td><p>4.2%</p></td></tr><tr><td><p>2023年1月6日（期末）</p></td><td><p>--</p></td><td><p>1,000.00</p></td><td><p>120,000.00</p></td><td><p>0.84%</p></td></tr><tr><td><p>合计</p></td><td><p>10,000.00</p></td><td><p>10,000.00</p></td><td></td><td></td></tr></tbody></table></div><p><em>提供的示例仅用于说明目的，并不旨在反映任何投资者可以预期实现的结果。</em></p><h2 id="a454-h6">3. 常见问题</h2><h3 id="a454-h7">3.1 各收益率计算方式的区别</h3><p>如上文<a href="#a" target="_blank" rel="noopener noreferrer">2. 各收益率计算方式</a>中我们可以看见在同个情况下，三种收益率计算方式得出了三种不同的结果。这三种收益率有各自不同的适用场景和优缺点。您可以根据自身不同的场景和需求，灵活选择不同的收益率展示方式。</p><div class="table-wrap"><table><tbody><tr class="head"><td><p><span class="em" style="color:#F2F4F7">收益率</span></p></td><td><p><span class="em" style="color:#F2F4F7">计算方式</span></p></td><td><p><span class="em" style="color:#F2F4F7">适用场景</span></p></td><td><p><span class="em" style="color:#F2F4F7">优点</span></p></td><td><p><span class="em" style="color:#F2F4F7">缺点</span></p></td></tr><tr><td><p>简单加权收益率</p></td><td><p>收益金额/调整后期初总资产</p><p>计算调整后期初资产时，净流入统一按0.5折算</p></td><td><p>出入金频率低，金额少</p></td><td><p>简单易懂</p></td><td><p>跟其他两种方法对比，相对不准确。</p><p>尤其当<strong>账户资金转出较大或计算区间较长时</strong>，可能导致收益率扭曲和夸大，甚至出现负数，失去参考价值</p></td></tr><tr><td><p>现金加权收益率</p></td><td><p>收益金额/调整后期初总资产</p><p>计算调整后期初资产时，净流入按时间权重折算</p></td><td rowspan="2"><p>出入金频率较高</p></td><td><p>同时考虑了净流入的时间和规模，相比于时间加权收益率较低概率才会出现收益额跟收益率符号相反的情况</p></td><td><p>当区间<strong>发生多笔大额资金出入且统计区间较长时</strong>，累计收益率可能不准确</p></td></tr><tr><td><p>时间加权收益率</p></td><td><p>计算统计期间每日收益率，相乘得到总收益率</p></td><td><p>将区间按天分割为多个时间段，尽量减少了净流入对收益率的影响</p></td><td><p>没有考虑投资金额，而对每日的收益率平等处理。</p><p>如果<strong>频繁大额（相对账户净值）资金存取</strong>可能会导致收益金额与收益率符号相反的情况，此时收益率无参考价值</p></td></tr></tbody></table></div><h3 id="a454-h8">3.2 为什么不同的计算方式导致结果有差异</h3><p>如上文3.1表格所述，因各收益率对统计时间段、统计期间的净流入有着不同的计算方式，所以会导致各收益率计算出来的累计收益率有差异。</p><h3 id="a454-h9">3.3&nbsp;如何选择收益率的计算方式</h3><p>在一段统计时间内，如果账户没有产生净流入，以上三种方法的收益率结果是一致且准确的，但如果有资金出入，那么收益率将会有差异，且统计的时间段越长，差异越大。</p><p>对于大多数投资者而言，建议考虑以下选择顺序：时间加权收益率＞现金加权收益率＞简单加权收益率</p><h3 id="a454-h10">3.4&nbsp;为什么我的累计收益是正数（负数），但收益率却是负数（正数）</h3><p>因各计算方式均考虑了“总资产”的概念，所以当账户频繁大额出入金，总资产减少时，累计收益可能与收益率相反。通常发生在使用时间加权收益率，例如： 当日收益/（昨日总资产+0.5*今日淨流入）</p><p>（1）T 日：日初总资产100，当日没有净流入，日末总资产150，则当日收益 +50，当日收益率 = 50/(100+0.5*0) = +50.00%</p><p>（2）T+1日：日初总资产150，当日净流入1000，日末总资产1050，则当日收益 -100，当日收益率 = -100/(150+0.5*1000) = -15.38%</p><p>（3）在[T,T+1]，时间加权收益率= [(1+50.00%) × (1-15.38%) -1] *100% = +26.93%，但是累计收益 = +50-100= -50</p><p>此时收益率并未准确反映持仓的实际收益，请以累计收益为准或切换到其他收益率计算方法。若在其他两种收益率计算方式下同样出现两者符号相反的情况，可以联系客服进一步解答。</p><p><em>本内容仅用作提供信息及教育之目的，不构成对任何特定证券或投资策略的推荐或认可。本内容中的信息仅用于说明目的，可能不适用于所有投资者。本内容未考虑任何特定人士的投资目标、财务状况或需求，并不应被视作个人投资建议。建议您在做出任何投资于任何资本市场产品的决定之前，应考虑您的个人情况判断信息的适当性。过去的投资表现不能保证未来的结果。投资涉及风险和损失本金的可能性。富途证券（香港）对上述内容的真实性、完整性、准确性或对任何特定目的的时效性不做任何陈述或保证。</em></p></div></article><article class="doc" id="a485"><header class="doc-head"><h3>收益日历</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_485" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><p>本模块以日历的形式展示收益和收益率，富途提供按月和按年两种收益展示方式。收益率的计算方法跟您在收益率走势的设定保持一致（简单加权，现金加权，或时间加权）。</p>
+<p>更新频率：需要您手动刷新才会更新到最新的数据。</p>
+<p>收益公式：</p>
+<p><span class="em" style="color:rgb(230, 126, 35)">1）T日收益 = T日资产净值 -（T-1）日资产净值 – T日净流入</span></p>
+<p><span class="em" style="color:rgb(230, 126, 35)">2）月收益&nbsp;= 当月的日收益总和</span></p></div></article></section><section class="cat"><h2 class="cat-title">盈亏分析</h2><article class="doc" id="a455"><header class="doc-head"><h3>盈亏分析总览</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_455" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a455-h1">1. 总盈亏统计说明</h2>
+<p>统计范围：包括股票、期权、期货、牛熊证、窝轮、ETF、基金等。</p>
+<p>统计时间：股票盈亏是历史至最近一个结算日；期货盈亏是历史至当前时刻。</p>
+<p>统计方法：股票标的盈亏包含其正股及衍生品，可点击正股进入详情页分别查看。</p>
+<p>更新频率：股票盈亏通常在开盘前更新至最近一个结算日；期货盈亏支持实时更新。</p>
+
+<h2 id="a455-h2">2. 已清仓、当前持仓的盈亏会统计到总盈亏吗？</h2>
+<p>股票：已清仓全部统计，而当前持仓的盈亏只统计到最近一个结算日，非实时，考虑交易费用。可查看左上角更新时间，确认统计的截止日期。</p>
+<p>期货：会，期货盈亏支持实时更新。</p>
+
+<h2 id="a455-h3">3. 交易胜率</h2>
+<p>证券的盈亏胜率统计，对于每只有过持仓的证券，P/L&gt;0为胜，P/L&lt;0为负。</p>
+<p>计算方法：胜率=count(P/L&gt;0)/count (有盈亏的证券数)</p></div></article><article class="doc" id="a456"><header class="doc-head"><h3>盈亏分析明细</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_456" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a456-h1">1. 股票盈亏</h2><p>您可以通过富途 APP「我的资产」页面，自行查看股票「盈亏分析」。</p><p>操作路径：点击「账户」Tab &gt; 点击「总资产」&gt;「我的资产-盈亏分析」&gt; 点击「盈亏排行-查看全部」&gt; 点击股票名称 &gt;「个股盈亏分析明细」，如下图所示。</p><p><img src="./富途账户资产字段说明汇总_files/1730451994033604047-LQnqqCdF.png" alt=""><img src="./富途账户资产字段说明汇总_files/1730451995033210926-wshqtUak.png" alt=""><img src="./富途账户资产字段说明汇总_files/1730451996127417704-cMTmpSzI.png" alt=""></p><p><strong>股票盈亏分析各字段的含义及计算公式参考：</strong></p><div class="table-wrap"><table><tbody><tr class="head"><td><p><strong>详情页</strong></p></td><td><p><strong>字段</strong></p></td><td><p><strong>含义说明及计算公式</strong></p></td><td><p><strong>图例</strong></p></td></tr><tr><td rowspan="4"><p>「我的资产-盈亏分析」</p><p>（股票盈亏分析汇总页）</p></td><td><p>累计盈亏</p></td><td><p>所有股票标的盈亏合计（包含费用）</p><p>累计盈亏=累计盈利+累计亏损</p></td><td rowspan="4"><p><img src="./富途账户资产字段说明汇总_files/1730452697463194974-qoWLZgpZ.png" alt=""></p></td></tr><tr><td><p>累计盈利</p></td><td><p>所有收益的股票标的盈亏合计（包含费用）</p></td></tr><tr><td><p>累计亏损</p></td><td><p>所有亏损的股票标的盈亏合计（包含费用）</p></td></tr><tr><td><p>交易胜率</p></td><td><p>对于每只有过持仓的证券，P/L&gt;0为胜，P/L&lt;0为负</p><p>胜率=count(P/L&gt;0)/count (有盈亏的证券数)</p></td></tr><tr><td rowspan="6"><p>「盈亏排行-盈亏分析」</p><p>（个股盈亏分析明细页）</p></td><td><p>累计盈亏（正股&amp;衍生品）</p></td><td><p>累计盈亏=正股累计盈亏+衍生品累计盈亏</p></td><td rowspan="6"><p><img src="./富途账户资产字段说明汇总_files/1730452698135728445-ehIdnfgO.png" alt=""></p></td></tr><tr><td><p>持仓市值</p></td><td><p>以最近结算日收盘价计算</p></td></tr><tr><td><p>累计出账金额</p></td><td><p>即买入或视同买入金额，包括买入成交金额、转入股票金额（优先按设定的转入成本价，如果未填则按当日收盘价）、新股中签金额（发行价×中签数量）等</p></td></tr><tr><td><p>累计入账金额</p></td><td><p>即卖出或视同卖出金额，包括卖出成交金额、转出股票金额（按转出日收盘价计算）等</p></td></tr><tr><td><p>交易费用</p></td><td><p>富途代收的印花税、交收费、交易费等，以及富途收取的佣金及平台使用费，后续支持查看各项费用</p></td></tr><tr><td><p>累计盈亏（正股）</p></td><td><p>累计盈亏（正股）=持仓市值+累计入账金额－累计出账金额－交易费用</p></td></tr></tbody></table></div><h2 id="a456-h2">2. 期货盈亏</h2><p>您可以通过富途 APP「我的资产」页面，自行查看期货「盈亏分析」。</p><p>操作路径：点击「账户」Tab &gt; 点击「总资产」&gt;「我的资产-盈亏分析-期货」&gt; &nbsp;点击「盈亏排行-查看全部」&gt; 点击期货名称 &gt;「期货盈亏分析明细」，如下图所示。</p><p><img src="./富途账户资产字段说明汇总_files/1732613757242680096-kmNCrFlL.png" alt=""></p><p><strong>期货盈亏分析各字段的含义及计算公式参考：</strong></p><div class="table-wrap"><table><tbody><tr class="head"><td><p><strong>详情页</strong></p></td><td><p><strong>字段</strong></p></td><td><p><strong>含义说明及计算公式</strong></p></td><td><p><strong>图例</strong></p></td></tr><tr><td rowspan="5"><p>「我的资产-盈亏分析」</p><p>（期货盈亏分析汇总页）</p></td><td><p>累计盈亏</p></td><td><p>所有合约标的盈亏合计（包含费用）</p><p>累计盈亏=累计盈利+累计亏损=未实现盈亏+已实现盈亏</p></td><td rowspan="5"><p><img src="./富途账户资产字段说明汇总_files/1702612029972559116-BoRjUcjW.png" alt=""></p></td></tr><tr><td><p>累计盈利</p></td><td><p>所有收益的合约标的盈亏合计（包含费用）</p></td></tr><tr><td><p>累计亏损</p></td><td><p>所有亏损的合约标的盈亏合计（包含费用）</p></td></tr><tr><td><p>未实现盈亏</p></td><td><p>所有未平仓合约的盈亏合计</p></td></tr><tr><td><p>已实现盈亏</p></td><td><p>所有已平仓合约的盈亏合计</p></td></tr><tr><td rowspan="4"><p>「盈亏排行-盈亏分析」</p><p>（单个合约品种</p><p>盈亏分析明细页）</p></td><td><p>累计盈亏</p></td><td><p>累计盈亏=未实现盈亏+已实现盈亏</p></td><td rowspan="4"><p><img src="./富途账户资产字段说明汇总_files/1702612030759139639-zgNLhjXc.png" alt=""></p></td></tr><tr><td><p>未实现盈亏</p></td><td><p>未实现盈亏=（现价-开仓价）×合约数量×合约乘数×方向</p></td></tr><tr><td><p>已实现盈亏</p></td><td><p>已实现盈亏：已平仓合约的盈亏合计</p><p>交割盈亏：在期货合约到期交割日，用结算交割价格来计算到期后未平仓期货合约的盈亏</p><p>已实现盈亏=交易盈亏+交割盈亏</p><p>1） 买多方向：卖出前的已实现盈亏+（此次卖出的金额-开仓价×合约乘数×此次卖出数量）</p><p>2） 卖空方向：买回前的已实现盈亏+（开仓价×合约乘数×此次买回数量-此次买回的金额）</p></td></tr><tr><td><p>交易费用</p></td><td><p>包括佣金、平台使用费、和其他收费共三个类别</p></td></tr></tbody></table></div><h2 id="a456-h3">3.&nbsp;<strong>理财盈亏</strong></h2><p>您可以通过富途 APP「我的资产」页面，自行查看理财「盈亏分析」。</p><p>操作路径：点击「账户」Tab &gt; 点击「总资产」&gt;「我的资产-盈亏分析-理财」&gt; 点击「盈亏排行-查看全部」&gt; 点击理财产品名称 &gt;「单个理财产品盈亏分析明细」，如下图所示。</p><p><img src="./富途账户资产字段说明汇总_files/1732613797712072419-KbBRVnuq.png" alt=""></p><p><strong>理财盈亏分析各字段的含义及计算公式参考：</strong></p><div class="table-wrap"><table><tbody><tr class="head"><td><strong>详情页</strong></td><td><strong>字段</strong></td><td><strong>含义说明及计算公式</strong></td><td><strong>图例</strong></td></tr><tr><td rowspan="3">「我的资产-盈亏分析」<br>（理财盈亏分析汇总页）</td><td>累计盈亏</td><td>用户所持有过的所有理财产品的累计收益之和<br>累计盈亏=累计盈利+累计亏损</td><td rowspan="3"><img src="./富途账户资产字段说明汇总_files/1714299675944266656-oIeRVuAS.jpeg" alt=""></td></tr><tr><td>累计盈利</td><td>所有收益的理财产品盈亏合计</td></tr><tr><td>累计亏损</td><td>所有亏损的理财产品盈亏合计</td></tr></tbody></table></div><h2 id="a456-h4">4. <strong>加密货币盈亏</strong></h2><p>您可以通过富途 APP「我的资产」页面，自行查看<a href="https://www.futuhk.com/hans/blog/detail-virtual-currency-what-is-cryptocurrency-learn-how-to-trade-bitcoin-ethereum-etf-in-hong-kong-73-240767010" target="_blank" rel="noopener noreferrer">加密货币</a>「盈亏分析」。</p><p>操作路径：点击「账户」Tab &gt; 点击「总资产」&gt;「我的资产 - 盈亏分析 - 加密货币」&gt; 点击「盈亏排行 - 查看全部」&gt; 点击加密货币名称 &gt;「单个加密货币盈亏分析明细」，如下图所示。</p><p><img src="./富途账户资产字段说明汇总_files/1732612016413289036-FjUocFvs.png" alt=""><img src="./富途账户资产字段说明汇总_files/1732612017937204179-fjJklgKh.png" alt=""><img src="./富途账户资产字段说明汇总_files/1732612018566994816-SCefxObr.png" alt=""></p><p><strong>加密货币盈亏分析各字段的含义及计算公式参考：</strong></p><div class="table-wrap"><table><tbody><tr class="head"><td><p><strong>详情页</strong></p></td><td><p><strong>字段</strong></p></td><td><p><strong>含义说明及计算公式</strong></p></td><td><p><strong>图例</strong></p></td></tr><tr><td rowspan="3"><p>「我的资产-盈亏分析」</p><p>（加密货币盈亏分析汇总页）</p></td><td><p>累计盈亏</p></td><td><p>所有加密货币标的盈亏合计（包含费用）</p><p>累计盈亏=累计盈利+累计亏损</p></td><td rowspan="3"><p><img src="./富途账户资产字段说明汇总_files/1732613242349134141-fwjnOyEq.jpeg" alt=""></p></td></tr><tr><td><p>累计盈利</p></td><td><p>所有盈利加密货币的总盈利额（包含费用）</p></td></tr><tr><td><p>累计亏损</p></td><td><p>所有亏损加密货币的总亏损额（包含费用）</p></td></tr><tr><td rowspan="3"><p>「盈亏排行-盈亏分析」</p><p>（单个加密货币盈亏分析明细页）</p></td><td><p>累计盈亏</p></td><td><p>累计盈亏 = 交易盈亏 - 交易费用</p></td><td rowspan="3"><p><img src="./富途账户资产字段说明汇总_files/1732612018566994816-SCefxObr.png" alt=""></p></td></tr><tr><td><p>交易盈亏</p></td><td><p>交易盈亏 = 期末市值 - 期初市值 + 卖出金额 - 买入金额</p></td></tr><tr><td><p>交易费用</p></td><td><p>主要是平台使用费</p></td></tr></tbody></table></div></div></article><article class="doc" id="a201"><header class="doc-head"><h3>港股期权市值和盈亏说明</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_201" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a201-h1">1. 期权结算价</h2><p>由于港股期权交易不活跃，会出现盘中正股价格发生变化，但期权没有发生成交导致价格没变化的情况。</p><p>收盘后香港交易所会提供官方结算价作为参考，可<a href="https://www.hkex.com.hk/chi/stat/dmstat/datadownload/setdata_c.asp" target="_blank" rel="noopener noreferrer">点击此处</a>查询每个期权的结算情况（一般在交易日晚上 20:30 之后公布相关资料）。</p><h2 id="a201-h2">2. 常见问题</h2><h3 id="a201-h3">2.1 为什么我的港股股票期权，它现在的持仓市值跟昨天收盘后的市值相差这么大？</h3><p>富途会在交易日盘前（北京时间 08:55），将参考港交所公布的期权昨结算价更新您的期权持仓市值。</p><p>开盘后，如果盘中有成交，会以最新的成交价计算期权市值；如果没有成交，则保持以这个昨结算价计算期权市值，直到下一个交易日盘前再次更新为港交所新的昨结算价。</p><p>计算期权市值的市价只是一个反映期权价值的参考取值，不论是参考最近的成交价还是交易所的昨结算价，都不会改变您的期权持仓数量，也不影响你的资产和交易。</p><p>这样的机制有利于保护投资者，也是同行通用做法。它可以反映长期没有交易的期权的真实价值，使投资者避因免行情价与真实价值偏离过大而做出错误的投资决策。</p><h3 id="a201-h4">2.2 为什么我用昨天收盘后在客户端看到的资产净值加账户的今日盈亏，不等于现在的实时总资产？</h3><p>如果您持有港股期权，所以是参考基准不一致导致的，并不影响您的实际资产。</p><p>（1）富途在计算港股期权的今日盈亏时，公式中使用的昨日市值使用了交易所公布的期权结算价；</p><p>（2）而昨天收盘至今天早上开盘前，都是使用收盘价计算。</p></div></article><article class="doc" id="a459"><header class="doc-head"><h3>新股盈亏</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_459" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h2 id="a459-h1">1.&nbsp;总览部分字段说明</h2>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+<p>字段</p>
+</td>
+<td>
+<p>说明</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>总收益</p>
+</td>
+<td>
+<p>总收益=总盈利+总亏损；</p>
+<p>总盈利：收益为正的新股盈利金额总和；</p>
+<p>总亏损：收益为负的新股亏损金额总和；</p>
+<p>其中总盈利和总亏损都包含新股申购相关费用</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>收益率</p>
+</td>
+<td>
+<p>总收益率=总收益/累计中签金额；</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>平均持有天数</p>
+</td>
+<td>
+<p>总体平均持有天数：从开户以来，统计至今的全部新股持有天数的平均值；</p>
+<p>单个新股的持有天数：从公布中签日开始计算，至该股票的中签数量完全清仓的日期；</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>统计周期</p>
+</td>
+<td>
+<p>下拉刷新可实时更新；</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+
+<h2 id="a459-h2">2. 认购分析字段说明</h2>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+<p>字段</p>
+</td>
+<td>
+<p>说明</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>中签率</p>
+</td>
+<td>
+<p>中签率=中签次数/申购次数；</p>
+<p>中签次数：中签的总次数；</p>
+<p>申购次数：参与申购且成功扣款的申购总次数；</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>打新胜率</p>
+</td>
+<td>
+<p>打新胜率=盈利数量/中签数量；</p>
+<p>盈利数量：收益为正的中签新股数量 ；</p>
+<p>中签数量：中签新股数量；</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>融资比例</p>
+</td>
+<td>
+<p>融资比例=融资金额/申购总金额；</p>
+<p>融资金额：银行融资和富途融资总和；</p>
+<p>申购总金额：融资金额与现金申购金额总和；</p>
+<p>此处统计的为用户自己申购所用的现金金额和融资金额；</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+
+
+<h2 id="a459-h4">3. 盈亏明细字段说明</h2>
+<div class="table-wrap"><table>
+<tbody>
+<tr class="head">
+<td>
+<p>字段</p>
+</td>
+<td>
+<p>说明</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>盈亏金额</p>
+</td>
+<td>
+<p>单个新股的盈亏=卖出成交金额+剩余持仓市值-中签金额-卖出交易费用-申购手续费；</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>持有天数</p>
+</td>
+<td>
+<p>从中签日，至中签股票全部卖完当天的累计天数；</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>收益率</p>
+</td>
+<td>
+<p>单个新股的收益率=单个新股的收益/中签金额；</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>平均卖出价</p>
+</td>
+<td>
+<p>卖出金额/卖出数量；</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>目前美股暂不支持以下字段的统计：<a href="https://www.futuhk.com/hans/blog/detail-grey-market-100-241113011" target="_blank" rel="noopener noreferrer">暗盘</a>涨幅、中签率、申购倍数、申购方式。</p>
+<p>目前申购美股不收取申购手续费。</p>
+
+<h2 id="a459-h5">4. 常见问题</h2>
+<h3 id="a459-h6">4.1 新股盈亏的盈亏金额与盈亏分析所统计的盈亏不一样？</h3>
+<p>1）"新股盈亏"模块的统计只是统计了中签股票数量的盈亏，当中签的股数全部清仓后，后续交易的盈亏便不再统计在"新股盈亏"中。"盈亏分析"的盈亏统计会将新股盈亏及持仓盈亏一起计算，所以两者的盈亏会有所不同。</p>
+<p>2）新股盈亏统计了“中签费用”和“申购费用”，盈亏分析暂不包含这两类费用。港股申购的“中签费用”数据可以在申购详情中查看，包含经纪佣金等。</p>
+
+<h3 id="a459-h7">4.2 未中签的股票为什么盈亏金额为负？</h3>
+<p>由于盈亏金额会将申购手续费、中签费用、卖出交易费用都会计算在内，所以未中签的股票会显示盈亏金额为负。</p>
+
+<h3 id="a459-h8">4.3 盈亏金额的计算是怎么判断我们卖出的是中签的股票?</h3>
+<p>我们按照先进先出的规则计算盈亏金额。举例：如果中签100股，暗盘再买入100股，上市当天卖出了200股，那「新股盈亏」里只会统计卖出中签的100股的盈亏（卖出交易费用会按比例分摊，此例子中，50%的卖出交易费用会计入「新股盈亏」中），上市当天卖出200股的总盈亏可以在「盈亏分析」里查看。</p>
+
+<h3 id="a459-h9">4.4 清仓后的新股会在「新股盈亏」中显示吗？</h3>
+<p>会的。</p></div></article></section><section class="cat"><h2 class="cat-title">在途资产</h2><article class="doc" id="a458"><header class="doc-head"><h3>在途资产</h3><a class="src" href="https://www.futuhkapp.com/cn/support/topic2_458" target="_blank" rel="noopener noreferrer">原文</a></header><div class="doc-body"><h3 id="a458-h1">1. 什么是在途资产？</h3><p>在途资产是您实际持有但尚未入账的资产部分。当业务发生资产变更不同步，比如先扣了钱，但是股票过几天才到账，或者先扣了股票，但是钱过几天才到账，就会产生在途资产。</p><h3 id="a458-h2">2. 查看路径</h3><p>可在「App &gt; 账户 &gt; 任意账户卡片 &gt; 资产 &gt; 进入账户明细页 &gt; 在途资产」，进行查看该账户当前的在途资产组成。</p><h3 id="a458-h3">3. 什么情况会产生在途资产？</h3><p>目前包括港股新股申购、Moomoo Financial Inc.与富途证券香港的资金调拨和<a href="https://www.futuhk.com/hans/products/invest-regularly" target="_blank" rel="noopener noreferrer">供股</a>。</p><h3 id="a458-h4">4. 在途资产会计入到总资产吗？</h3><p>计入。总资产包括您的现金余额和持仓市值，以及在途资产。其中，在途资产可能是现金，也可能是股票的形式。</p><h3 id="a458-h5">5. 在途资产什么时候到账？</h3><p>取决于具体业务。比如，港股新股申购的在途资产，会在公布中签日到账；预计到账日是预估值，仅供参考，实际到账时间取决于业务本身，富途不作保证。到账后，在途资产转为对应的资产。</p><h3 id="a458-h6">6. 在途资产是否会影响我的购买力？</h3><p>暂时不影响。后续支持在途资产为账户提供一定购买力。</p><h3 id="a458-h7">7. 在途资产会出现在结单上吗？</h3><p>不会。当前仅在客户端展示，未参与账户结算。</p></div></article></section>
+    <p class="foot">字段口径以富途帮助中心原文为准。文内「原文」链接指向对应帮助页。截图来自帮助中心，需联网后显示。</p>
+  </main>
+</div>
+<script>
+  const q = document.getElementById('q');
+  const nav = document.getElementById('nav');
+  const empty = document.getElementById('empty');
+  const links = [...nav.querySelectorAll('a')];
+  q.addEventListener('input', () => {
+    const key = q.value.trim().toLowerCase();
+    let shown = 0;
+    for (const g of nav.querySelectorAll('.group')) {
+      const nodes = [...g.querySelectorAll('a')];
+      const blocks = [];
+      let current = null;
+      for (const a of nodes) {
+        if (a.classList.contains('nav-art')) { current = {art:a, kids:[]}; blocks.push(current); }
+        else if (current) current.kids.push(a);
+      }
+      let any = false;
+      for (const block of blocks) {
+        const artHit = !key || block.art.dataset.text.toLowerCase().includes(key);
+        const kidHits = block.kids.map(k => !key || k.dataset.text.toLowerCase().includes(key));
+        const open = artHit || kidHits.some(Boolean);
+        block.art.classList.toggle('hidden', !open);
+        block.kids.forEach((k,i) => k.classList.toggle('hidden', !open || (key && !artHit && !kidHits[i])));
+        if (open) any = true;
+      }
+      g.classList.toggle('hidden', !any);
+      if (any) shown++;
+    }
+    empty.style.display = shown ? 'none' : 'block';
+  });
+  const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const obs = new IntersectionObserver((entries) => {
+    const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio);
+    if (!visible.length) return;
+    const id = visible[0].target.id;
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+  }, { rootMargin: '-8% 0px -75% 0px', threshold: [0.1, 1] });
+  targets.forEach(t => obs.observe(t));
+
+  const docs = [...document.querySelectorAll('article.doc')];
+  const cats = [...document.querySelectorAll('section.cat')];
+  const hitCount = document.getElementById('hit-count');
+  let hits = [];
+  let hitIndex = -1;
+  function clearMarks(root) {
+    root.querySelectorAll('mark.hit').forEach(m => m.replaceWith(document.createTextNode(m.textContent)));
+    root.normalize();
+  }
+  function highlight(root, re) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const p = node.parentElement;
+        if (!p || p.closest('script, style, .tools, .search')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(node => {
+      const value = node.nodeValue;
+      re.lastIndex = 0;
+      if (!re.test(value)) return;
+      re.lastIndex = 0;
+      const frag = document.createDocumentFragment();
+      let last = 0;
+      value.replace(re, (m, offset) => {
+        if (offset > last) frag.appendChild(document.createTextNode(value.slice(last, offset)));
+        const mark = document.createElement('mark');
+        mark.className = 'hit';
+        mark.textContent = m;
+        frag.appendChild(mark);
+        last = offset + m.length;
+        return m;
+      });
+      if (last < value.length) frag.appendChild(document.createTextNode(value.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+  function setHit(i) {
+    if (!hits.length) { hitIndex = -1; hitCount.textContent = '0 处'; return; }
+    hits.forEach(m => m.classList.remove('current'));
+    hitIndex = (i + hits.length) % hits.length;
+    const mark = hits[hitIndex];
+    mark.classList.add('current');
+    mark.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+    hitCount.textContent = '第 ' + (hitIndex + 1) + ' / ' + hits.length + ' 处';
+  }
+  function stepHit(delta) {
+    if (!hits.length) return;
+    setHit(hitIndex < 0 ? 0 : hitIndex + delta);
+  }
+  function refreshHits() {
+    const key = q.value.trim();
+    const main = document.querySelector('.main');
+    clearMarks(main);
+    const folded = key.toLowerCase();
+    docs.forEach(doc => {
+      doc.classList.toggle('hidden', !!folded && !doc.textContent.toLowerCase().includes(folded));
+    });
+    cats.forEach(cat => {
+      const any = [...cat.querySelectorAll('article.doc')].some(d => !d.classList.contains('hidden'));
+      cat.classList.toggle('hidden', !any);
+    });
+    if (folded) highlight(main, new RegExp(key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'ig'));
+    hits = folded ? [...main.querySelectorAll('mark.hit')] : [];
+    if (hits.length) setHit(0);
+    else hitCount.textContent = folded ? '0 处' : '';
+  }
+  q.addEventListener('input', refreshHits);
+  q.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); stepHit(e.shiftKey ? -1 : 1); }
+    else if (e.key === 'Escape') { q.value = ''; q.dispatchEvent(new Event('input')); }
+  });
+  document.getElementById('btn-next').addEventListener('click', () => stepHit(1));
+  document.getElementById('btn-prev').addEventListener('click', () => stepHit(-1));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'F3' || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'g')) {
+      e.preventDefault();
+      stepHit(e.shiftKey ? -1 : 1);
+    }
+  });
+  document.getElementById('btn-print').addEventListener('click', () => window.print());
+  document.getElementById('btn-download').addEventListener('click', () => {
+    const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '富途账户资产字段说明汇总.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(a.href);
+  });
+
+</script>
+
+
+</body></html>
